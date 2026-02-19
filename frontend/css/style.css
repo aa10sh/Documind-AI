@@ -1,55 +1,73 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Main container */
-.container {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    width: 400px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-/* Buttons */
-.btn {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    background: #4CAF50;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
     color: white;
+    margin: 0;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
 }
 
-.btn.secondary {
-    background: #2196F3;
+button:hover {
+    background: #0072ff;
 }
 
-/* Chat box */
-.chat-box {
+#chatBox {
     height: 300px;
-    border: 1px solid #ddd;
     overflow-y: auto;
+    background: rgba(0,0,0,0.3);
     padding: 10px;
+    border-radius: 10px;
     margin-bottom: 10px;
-    text-align: left;
 }
 
-/* Chat input */
+.message {
+    margin: 10px 0;
+}
+
+.user { color: #00ffea; }
+.bot { color: #ffd86b; }
+
 .chat-input {
     display: flex;
     gap: 10px;
 }
 
-input[type="text"], input[type="file"] {
+.chat-input input {
+    flex: 1;
     padding: 10px;
-    width: 100%;
+    border-radius: 8px;
+    border: none;
 }

@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+
+
 from backend.config.settings import APP_NAME, APP_VERSION
 from backend.config.logging import logger
 

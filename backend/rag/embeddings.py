@@ -22,9 +22,10 @@ def get_embedding_model():
         logger.info("Using OpenAI Embeddings")
 
         return OpenAIEmbeddings(
-            model=OPENAI_EMBEDDING_MODEL,
-            api_key=OPENAI_API_KEY
-        )
+        model=OPENAI_EMBEDDING_MODEL,
+        openai_api_key=OPENAI_API_KEY
+    )
+
 
     elif LLM_PROVIDER.lower() == "huggingface":
         logger.info("Using HuggingFace Embeddings")

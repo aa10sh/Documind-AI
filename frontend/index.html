@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>DocuMind AI</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>📄 DocuMind AI</h1>
-        <p>Upload documents, summarize them, and chat with your files.</p>
+<div class="container">
 
-        <div class="buttons">
-            <a href="upload.html" class="btn">Upload Document</a>
-            <a href="chat.html" class="btn secondary">Chat With Document</a>
+    <h1>DocuMind AI</h1>
+    <p class="subtitle">Upload a document and chat with it</p>
+
+    <!-- Upload Section -->
+    <div class="card">
+        <h2>Upload Document</h2>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload</button>
+        <p id="uploadStatus"></p>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="card chat-card">
+        <h2>Chat with Document</h2>
+
+        <div id="chatBox"></div>
+
+        <div class="chat-input">
+            <input type="text" id="question" placeholder="Ask something about the document...">
+            <button onclick="askQuestion()">Send</button>
         </div>
     </div>
 
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>

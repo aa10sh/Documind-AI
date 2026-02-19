@@ -1,70 +1,47 @@
 // Change this when deploying to AWS
 const BASE_URL = "http://127.0.0.1:8000/api";
 
-
-// Upload Document
 async function uploadFile() {
-    const fileInput = document.getElementById("fileInput");
-    const status = document.getElementById("uploadStatus");
+    const file = document.getElementById("fileInput").files[0];
+    if (!file) return alert("Select a file first");
 
-    if (!fileInput.files.length) {
-        status.innerText = "Please select a file.";
-        return;
-    }
+    document.getElementById("uploadStatus").innerText = "Uploading...";
 
     const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+    formData.append("file", file);
 
-    try {
-        status.innerText = "Uploading...";
+    const res = await fetch(`${BASE_URL}/upload`, {
+        method: "POST",
+        body: formData
+    });
 
-        const response = await fetch(`${BASE_URL}/upload`, {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.json();
-
-        status.innerText = "✅ " + data.message;
-
-    } catch (error) {
-        status.innerText = "❌ Upload failed.";
-        console.error(error);
-    }
+    const data = await res.json();
+    document.getElementById("uploadStatus").innerText = "Document ready!";
 }
 
-
-
-// Chat With Document
 async function askQuestion() {
-    const input = document.getElementById("questionInput");
-    const chatBox = document.getElementById("chatBox");
-
-    const question = input.value.trim();
-
+    const question = document.getElementById("question").value;
     if (!question) return;
 
-    // Show user message
-    chatBox.innerHTML += `<p><b>You:</b> ${question}</p>`;
+    addMessage("You: " + question, "user");
 
-    input.value = "";
+    const res = await fetch(`${BASE_URL}/ask`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({question})
+    });
 
-    try {
-        const response = await fetch(`${BASE_URL}/ask`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ question: question })
-        });
+    const data = await res.json();
+    addMessage("AI: " + data.answer, "bot");
 
-        const data = await response.json();
-
-        chatBox.innerHTML += `<p><b>AI:</b> ${data.answer}</p>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-
-    } catch (error) {
-        chatBox.innerHTML += `<p style="color:red;"><b>Error:</b> Could not get response</p>`;
-        console.error(error);
-    }
+    document.getElementById("question").value = "";
 }
+
+function addMessage(text, cls) {
+    const chatBox = document.getElementById("chatBox");
+    const msg = document.createElement("div");
+    msg.className = "message " + cls;
+    msg.innerText = text;
+    chatBox.appendChild(msg);
+}
+
