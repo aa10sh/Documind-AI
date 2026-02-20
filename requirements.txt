@@ -1,66 +1,18 @@
-# -------------------------
-# Core Backend
-# -------------------------
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
-python-multipart==0.0.9
-pydantic==2.9.2
-aiofiles==24.1.0
+fastapi
+uvicorn[standard]
+python-dotenv
 
-# -------------------------
-# Environment & Config
-# -------------------------
-python-dotenv==1.0.1
+langchain
+langchain-openai
+langchain-community
+langchain-text-splitters
 
-# -------------------------
-# LangChain Ecosystem
-# -------------------------
-langchain==0.2.16
-langchain-community==0.2.16
-langchain-openai==0.1.23
-langchain-huggingface==0.0.3
+openai
+faiss-cpu
 
-# -------------------------
-# LLM Providers
-# -------------------------
-openai==1.40.6
-huggingface-hub==0.24.6
-transformers==4.44.2
-tiktoken==0.7.0
-
-# -------------------------
-# Embeddings & Vector DB
-# -------------------------
-faiss-cpu==1.8.0.post1
-chromadb==0.5.5
-sentence-transformers==3.0.1
-
-# -------------------------
-# Document Processing
-# -------------------------
-pypdf==4.3.1
-python-docx==1.1.2
-unstructured==0.15.0
-
-# -------------------------
-# Data & Utilities
-# -------------------------
-numpy==1.26.4
-pandas==2.2.2
-
-# -------------------------
-# AWS Deployment
-# -------------------------
-boto3==1.35.8
-
-# -------------------------
-# Logging & Monitoring
-# -------------------------
-loguru==0.7.2
-tenacity==8.5.0
-
-# -------------------------
-# Testing (CI/CD)
-# -------------------------
-pytest==8.3.2
-httpx==0.27.0
+python-multipart
+pydantic
+pypdf
+python-docx
+loguru
+tqdm

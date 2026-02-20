@@ -1,5 +1,5 @@
-from langchain.vectorstores import FAISS
-from langchain.docstore.document import Document
+from langchain_community.vectorstores import FAISS
+from langchain_core.documents import Document
 from pathlib import Path
 from typing import List
 

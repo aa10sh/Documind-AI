@@ -1,4 +1,4 @@
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from pathlib import Path
 from typing import List
 

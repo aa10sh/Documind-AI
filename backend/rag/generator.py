@@ -1,5 +1,5 @@
 from langchain_openai import ChatOpenAI
-from huggingface_hub import InferenceClient
+# from huggingface_hub import InferenceClient
 
 from backend.config.settings import (
     LLM_PROVIDER,

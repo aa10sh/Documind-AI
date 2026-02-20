@@ -1,40 +1,14 @@
+
+
 from langchain_openai import OpenAIEmbeddings
-from langchain_huggingface import HuggingFaceEmbeddings
-
-from backend.config.settings import (
-    LLM_PROVIDER,
-    OPENAI_API_KEY,
-    HF_API_KEY,
-    OPENAI_EMBEDDING_MODEL,
-    HF_EMBEDDING_MODEL
-)
-from backend.config.logging import logger
+import os
 
 
-# Load Embedding Model (Provider Agnostic)
 def get_embedding_model():
-    """
-    Returns embedding model based on selected provider.
-    Supports OpenAI and HuggingFace.
-    """
+    provider = os.getenv("LLM_PROVIDER", "openai")
 
-    if LLM_PROVIDER.lower() == "openai":
-        logger.info("Using OpenAI Embeddings")
-
-        return OpenAIEmbeddings(
-        model=OPENAI_EMBEDDING_MODEL,
-        openai_api_key=OPENAI_API_KEY
-    )
-
-
-    elif LLM_PROVIDER.lower() == "huggingface":
-        logger.info("Using HuggingFace Embeddings")
-
-        return HuggingFaceEmbeddings(
-            model_name=HF_EMBEDDING_MODEL
-        )
+    if provider == "openai":
+        return OpenAIEmbeddings()
 
     else:
-        raise ValueError("Invalid LLM_PROVIDER. Choose 'openai' or 'huggingface'.")
-    
-    
+        raise ValueError("Only OpenAI provider is supported in this build.")
