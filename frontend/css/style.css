@@ -71,3 +71,14 @@ button:hover {
     border-radius: 8px;
     border: none;
 }
+
+#summaryBox {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #1f3a40;
+    border-radius: 8px;
+    line-height: 1.6;
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}

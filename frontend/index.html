@@ -15,12 +15,25 @@
 
     <!-- Upload Section -->
     <div class="card">
-        <h2>Upload Document</h2>
-        <input type="file" id="fileInput">
-        <button onclick="uploadFile()">Upload</button>
-        <p id="uploadStatus"></p>
-    </div>
+    <h2>Upload Document</h2>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload</button>
 
+    <!-- NEW -->
+    <button onclick="summarizeDocument()" id="summarizeBtn" disabled>
+        Summarize PDF
+    </button>
+
+    <p id="uploadStatus"></p>
+    </div>
+     
+
+    <!-- Summary Section -->
+    <div class="card" id="summaryCard" style="display:none;">
+        <h2>Document Summary</h2>
+        <div id="summaryBox"></div>
+    </div>
+    
     <!-- Chat Section -->
     <div class="card chat-card">
         <h2>Chat with Document</h2>
